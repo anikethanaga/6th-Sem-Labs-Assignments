@@ -1,0 +1,5 @@
+git add .
+git config --global user.name "iamstudent"
+git config --global user.email "student@email.com"
+git commit -m "First commit"
+git push origin master
