@@ -1,0 +1,83 @@
+9
+Details about packet 1
+
+Packet Type =  4
+Packet Protocol =  TCP
+Source MAC Address = 6c:c2:17:77:00:a6:
+Destination MAC Address = 50:eb:1a:90:61:32:
+Source IP Address = 10.100.53.123.
+Destination IP Address = 54.72.51.202.
+Source Port Number = 1949
+Destination Port number = 8282
+
+Action for this packet as per the given ACL is : Allow
+
+
+
+
+Details about packet 2
+
+Packet Type =  4
+Packet Protocol =  TCP
+Source MAC Address = 50:eb:1a:90:61:32:
+Destination MAC Address = 6c:c2:17:77:00:a6:
+Source IP Address = 54.72.51.202.
+Destination IP Address = 10.100.53.123.
+Source Port Number = 8282
+Destination Port number = 1949
+
+Action for this packet as per the given ACL is : Deny
+
+
+
+
+Details about packet 3
+
+Packet Type =  4
+Packet Protocol =  UDP
+Source MAC Address = 30:9c:23:50:ce:c0:
+Destination MAC Address = ff:ff:ff:ff:ff:ff:
+Source IP Address = 10.100.55.138.
+Destination IP Address = 255.255.255.255.
+Source Port Number = 61980
+Destination Port number = 1947
+
+Action for this packet as per the given ACL is : Deny
+
+
+
+
+Details about packet 4
+
+Packet Type =  4
+Packet Protocol =  TCP
+Source MAC Address = 6c:c2:17:77:00:a6:
+Destination MAC Address = 50:eb:1a:90:61:32:
+Source IP Address = 10.100.53.123.
+Destination IP Address = 13.33.142.118.
+Source Port Number = 2323
+Destination Port number = 443
+
+Action for this packet as per the given ACL is : Allow
+
+
+
+
+Details about packet 5
+
+Packet Type =  4
+Packet Protocol =  TCP
+Source MAC Address = 50:eb:1a:90:61:32:
+Destination MAC Address = 6c:c2:17:77:00:a6:
+Source IP Address = 13.33.142.118.
+Destination IP Address = 10.100.53.123.
+Source Port Number = 443
+Destination Port number = 2323
+
+Action for this packet as per the given ACL is : Deny
+
+
+
+
+The final actions for the packets as per ACL are : 
+ ['Allow', 'Deny', 'Deny', 'Allow', 'Deny']

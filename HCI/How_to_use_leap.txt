@@ -1,0 +1,2 @@
+Terminal 1: sudo leapd (can be open anywhere)
+terminal 2: python vlc_final.py (for ex) ---> terminal must be open in ~/Leap_Motion_SDK_Linux_2.3.1/LeapDeveloperKit_2.3.1+31549_linux/assignment/samples

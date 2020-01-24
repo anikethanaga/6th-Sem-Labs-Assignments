@@ -1,0 +1,30 @@
+If there is connectivity problem due RIPv1 configuration in the topology, please configure RIPv2 on all routers.
+In the RIPv2 configuration, only one extra line should be configured.
+
+Example : 
+ 
+R1# config t 
+R1(config)# router rip 
+R1(config-router)# version 2 
+R1(config-router)# network 172.30.0.0 
+R1(config-router)# network 10.0.0.0  
+
+171IT208_IT352_P1_S2.png
+
+Router>enable
+Router#
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#ip access-list standard 20
+Router(config-std-nacl)#permit 192.168.1.0
+Router(config-std-nacl)#deny any
+Router(config-std-nacl)#exit
+Router(config)#interface serial 0/0/0
+Router(config-if)#ip access-group 20 in
+Router(config-if)#exit
+Router(config)#exit
+Router#
+
+show access-lists  ---> to show ACL
+no access-list 20  ---> to remove policy list 20 in config mode
