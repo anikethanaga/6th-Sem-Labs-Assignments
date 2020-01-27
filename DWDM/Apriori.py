@@ -3,20 +3,104 @@ import pandas as pd
 
 
 def main():
-	pd1 = pd.read_csv('test_dataset_2.csv')
+	pd1 = pd.read_csv('test_dataset_1.csv',header=None).fillna('')
 	pd1 = pd1.values
-	print(pd1)
+	#print(pd1)
 
-	print(pd1.shape)
+	#print(pd1.shape)
 
-	C1 =[]
+	min_support = int(input("Enter the minimum support value : "))
+
+	C=[None]*10
+	L=[None]*10
+	#C_supports = [None]*10
+	L_supports = [None]*10
+	for i in range(10):
+		C[i] = list()
+		L[i] = list()
+		#C_supports[i] = list()
+		L_supports[i] = list()
+
+	#C1 =[]
 
 	for i in range(pd1.shape[0]):
 		for j in range(pd1.shape[1]):
-			if pd1[i][j] not in C1:
-				C1.append(pd1[i][j])
+			if pd1[i][j]=='':
+				break
+			if pd1[i][j] not in C[0]:
+				C[0].append(pd1[i][j])
 
-	print(C1)
+	print("C1 = \n")
+	for itemset in C[0]:
+		print(itemset)
+
+	print("\n********************************************************\n")
+
+	#C1.remove('')
+
+	#L1 = []
+
+	for ele in C[0]:
+		count = 0
+		for i in range(pd1.shape[0]):
+			for j in range(pd1.shape[1]):
+				if pd1[i][j]=='':
+					break
+				if pd1[i][j]==ele:
+					count = count+1
+					break#since we are counting only the no of transactions
+		if count>=min_support:
+			L_supports[0].append(count)
+			L[0].append(ele)
+
+	print("L1 = \n")
+	print("Member\t\tSupport")
+	for i in range(len(L[0])):
+		print(L[0][i],"\t\t",L_supports[0][i])
+
+	print("\n********************************************************\n")
+
+	#L1 = pd.DataFrame(L1) 
+
+	#C2 = []
+
+	for i in range(len(L[0])):
+		C2_ele = [L[0][i]]
+		#print(C2_ele)
+		for j in range(i+1,len(L[0])):
+			C2_member = C2_ele[:]
+			C2_member.append(L[0][j])
+			C[1].append(C2_member)
+
+	print("C2 = \n")
+	for itemset in C[1]:
+		print(itemset)
+
+	print("\n********************************************************\n")
+
+	#L2 = []
+	for itemset in C[1]:
+		transactions_count = 0
+		for i in range(pd1.shape[0]):
+			items_found = 0
+			for item in itemset:
+				for j in range(pd1.shape[1]):
+					if pd1[i][j]==item:
+						items_found=items_found+1
+						break
+			if items_found == len(itemset):
+				transactions_count = transactions_count+1
+		if transactions_count>=min_support:
+			L[1].append(itemset[:])
+			L_supports[1].append(transactions_count)
+			#print(transactions_count)
+	print("L2 = \n")
+	print("Member\t\tSupport")
+	for i in range(len(L[1])):
+		print(L[1][i],"\t\t",L_supports[1][i])
+
+	print("\n********************************************************\n")
+
 
 
 if __name__ == '__main__':
