@@ -1,0 +1,13 @@
+Enter the filter for the sniffing : 'host 10.10.1.1'
+The packet fields are : 
+('Packet Type = ', 4)
+('Packet Protocol = ', 'TCP')
+Source MAC Address = 70:1c:e7:16:62:69:
+Destination MAC Address = 50:eb:1a:90:61:32:
+Source IP Address = 10.10.1.1.
+Destination IP Address = 10.100.1.1.
+Source Port Number = 81
+Destination Port number = 80
+
+Action for this packet as per the given ACL is : Deny
+The packet is denied
