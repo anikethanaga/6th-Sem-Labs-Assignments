@@ -56,7 +56,7 @@ def main():
         transactions.append(transaction)
         tree.insert(tree.root,transaction)
 
-    # print(transactions)
+    print(transactions)
 
     # tree.insert(tree.root, transactions[0])
 
