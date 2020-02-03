@@ -5,10 +5,20 @@ import pandas as pd
 def main():
 	pd1 = pd.read_csv('test_dataset_1.csv',header=None).fillna('')
 	pd1 = pd1.values
-	#print(pd1)
+	database=[]
+	for i in range(pd1.shape[0]):
+		transaction=set()
+		for j in range(pd1.shape[1]):
+			if pd1[i][j]=='':
+				break
+			transaction.add(pd1[i][j])
+		database.append(transaction)
 
-	#print(pd1.shape)
-
+	print("The database is :")
+	for transaction in database:
+		print(transaction) 
+	print()
+	
 	min_support = int(input("Enter the minimum support value : "))
 
 	C=[None]*10
@@ -21,14 +31,13 @@ def main():
 		#C_supports[i] = list()
 		L_supports[i] = list()
 
-	#C1 =[]
-
 	for i in range(pd1.shape[0]):
 		for j in range(pd1.shape[1]):
 			if pd1[i][j]=='':
 				break
-			if pd1[i][j] not in C[0]:
-				C[0].append(pd1[i][j])
+			if {pd1[i][j]} not in C[0]:
+				ele = {pd1[i][j]}
+				C[0].append(ele)
 
 	print("C1 = \n")
 	for itemset in C[0]:
@@ -39,8 +48,9 @@ def main():
 	#C1.remove('')
 
 	#L1 = []
+ 
 
-	for ele in C[0]:
+	'''for ele in C[0]:
 		count = 0
 		for i in range(pd1.shape[0]):
 			for j in range(pd1.shape[1]):
@@ -51,7 +61,7 @@ def main():
 					break#since we are counting only the no of transactions
 		if count>=min_support:
 			L_supports[0].append(count)
-			L[0].append(ele)
+			L[0].append(ele)'''
 
 	print("L1 = \n")
 	print("Member\t\tSupport")
@@ -63,43 +73,50 @@ def main():
 	#L1 = pd.DataFrame(L1) 
 
 	#C2 = []
+	'''k=1
+	while len(C[k-1])>0 and len(L[k-1])>0:
 
-	for i in range(len(L[0])):
-		C2_ele = [L[0][i]]
+		for i in range(len(L[k-1])):
+			ele = [L[k-1][i]]
 		#print(C2_ele)
-		for j in range(i+1,len(L[0])):
-			C2_member = C2_ele[:]
-			C2_member.append(L[0][j])
-			C[1].append(C2_member)
+			for j in range(i+1,len(L[k-1])):
+				flag = 1
+				for c in range(k-1):
+					if L[k-1][j] 
+				C2_member = C2_ele[:]
+				C2_member.append(L[0][j])
+				C[1].append(C2_member)
 
-	print("C2 = \n")
-	for itemset in C[1]:
-		print(itemset)
+		print("C2 = \n")
+		for itemset in C[1]:
+			print(itemset)
 
-	print("\n********************************************************\n")
+		print("\n********************************************************\n")
 
 	#L2 = []
-	for itemset in C[1]:
-		transactions_count = 0
-		for i in range(pd1.shape[0]):
-			items_found = 0
-			for item in itemset:
-				for j in range(pd1.shape[1]):
-					if pd1[i][j]==item:
-						items_found=items_found+1
-						break
-			if items_found == len(itemset):
-				transactions_count = transactions_count+1
-		if transactions_count>=min_support:
-			L[1].append(itemset[:])
-			L_supports[1].append(transactions_count)
+		for itemset in C[1]:
+			transactions_count = 0
+			for i in range(pd1.shape[0]):
+				items_found = 0
+				for item in itemset:
+					for j in range(pd1.shape[1]):
+						if pd1[i][j]==item:
+							items_found=items_found+1
+							break
+				if items_found == len(itemset):
+					transactions_count = transactions_count+1
+			if transactions_count>=min_support:
+				L[1].append(itemset[:])
+				L_supports[1].append(transactions_count)
 			#print(transactions_count)
-	print("L2 = \n")
-	print("Member\t\tSupport")
-	for i in range(len(L[1])):
-		print(L[1][i],"\t\t",L_supports[1][i])
+		print("L2 = \n")
+		print("Member\t\tSupport")
+		for i in range(len(L[1])):
+			print(L[1][i],"\t\t",L_supports[1][i])
 
-	print("\n********************************************************\n")
+		print("\n********************************************************\n")
+
+		k = k+1'''
 
 
 
