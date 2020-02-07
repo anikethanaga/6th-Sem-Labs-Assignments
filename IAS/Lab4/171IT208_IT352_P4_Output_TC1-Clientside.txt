@@ -1,0 +1,9 @@
+Enter port number of server to connect with : 12377
+Enter IP address of server to connect with : 127.0.0.1
+Sending identity to server
+ROUND  1 
+
+Enter first prime number, p : 467
+Enter second prime number, q : 479
+Enter private key, s (a number between 1 and n-1) : 223694
+Invalid Private key. Closing connection

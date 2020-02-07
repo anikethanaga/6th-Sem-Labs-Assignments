@@ -1,5 +1,6 @@
 # Import socket module 
-import socket            
+import socket 
+import sys           
 
 def main():
 
@@ -30,18 +31,24 @@ def main():
         p=int(input("Enter first prime number, p : "))
         q=int(input("Enter second prime number, q : ")) 
         n=p*q
-        while True:
-            s=int(input("Enter private key, s (a number between 1 and n-1) : "))
-            if s<1 or s>=n:
-                print("Out of range.Please enter again")
-                continue
-            break
-        while True:
-            r=int(input("Enter commitment, r (a random number between 1 and n-1) : "))
-            if r<1 or r>=n:
-                print("Out of range.Please enter again")
-                continue
-            break
+
+        err_msg ="force_exit"
+        
+        s=int(input("Enter private key, s (a number between 1 and n-1) : "))
+        if s<1 or s>=n:
+            print("Invalid Private key. Closing connection")
+            sock.send(err_msg.encode('utf-8'))
+            sock.close()
+            sys.exit()
+
+        
+        
+        r=int(input("Enter commitment, r (a random number between 1 and n-1) : "))
+        if r<1 or r>=n:
+            print("Invalid random number. Closing connection")
+            sock.send(err_msg.encode('utf-8'))
+            sock.close()
+            sys.exit()
 
         x = ((r%n)*(r%n))%n
         v = ((s%n)*(s%n))%n       
@@ -67,7 +74,7 @@ def main():
 
         sock.send(str(y).encode('utf-8'))
 
-        print("\n******************************************************\n")
+        print("******************************************************")
 
         # close the connection 
     sock.close()

@@ -1,6 +1,7 @@
 # first of all import the socket library 
 import socket
-import random            
+import random    
+import sys        
 
 # next create a socket object 
 s = socket.socket()      
@@ -44,7 +45,14 @@ for i in range(1):
 
     # send a thank you message to the client. 
         #c.send('Thank you for connecting'.encode('utf-8')) 
-        client_info = c.recv(1024).decode('ascii').split()
+        client_info = c.recv(1024).decode('ascii')
+
+        if client_info=="force_exit":
+            print("Exiting")
+            c.close()
+            sys.exit()
+
+        client_info = client_info.split()
         x = int(client_info[0])
         v = int(client_info[1])
         n = int(client_info[2])

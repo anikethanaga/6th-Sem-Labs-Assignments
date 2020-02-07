@@ -1,0 +1,50 @@
+Socket successfully created
+IP address of server =  127.0.1.1
+Socket bound to prt number :  12382
+socket is listening
+Got connection from ('127.0.0.1', 43960)
+
+
+The ID Of the client :
+Hostname =  itadmin-HP-ProDesk-600-G5-MT 
+IP Address =  127.0.1.1 
+
+
+ROUND  1
+Witness =  225 
+Client's Public key =  484 
+Global Parameter , n =  870473
+Enter the challenge : 0
+y =  15
+
+Round cleared
+
+
+******************************************************
+
+ROUND  2
+Witness =  256 
+Client's Public key =  484 
+Global Parameter , n =  870473
+Enter the challenge : 0
+y =  16
+
+Round cleared
+
+
+******************************************************
+
+ROUND  3
+Witness =  1681 
+Client's Public key =  484 
+Global Parameter , n =  870473
+Enter the challenge : 1
+y =  902
+
+Round cleared
+
+
+******************************************************
+
+
+Client is authenticated

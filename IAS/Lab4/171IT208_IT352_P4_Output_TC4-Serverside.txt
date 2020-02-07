@@ -1,0 +1,14 @@
+Socket successfully created
+IP address of server =  127.0.1.1
+Socket bound to prt number :  12394
+socket is listening
+Got connection from ('127.0.0.1', 34674)
+
+
+The ID Of the client :
+Hostname =  itadmin-HP-ProDesk-600-G5-MT 
+IP Address =  127.0.1.1 
+
+
+ROUND  1
+Exiting

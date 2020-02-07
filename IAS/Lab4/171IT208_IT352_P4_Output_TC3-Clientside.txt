@@ -1,0 +1,39 @@
+Enter port number of server to connect with : 12379
+Enter IP address of server to connect with : 127.0.1.1
+Sending identity to server
+ROUND  1 
+
+Enter first prime number, p : 727
+Enter second prime number, q : 733
+Enter private key, s (a number between 1 and n-1) : 36
+Enter commitment, r (a random number between 1 and n-1) : 101
+Sending public key and n to  server
+
+Waiting for challenge
+
+Sending response
+******************************************************
+ROUND  2 
+
+Enter first prime number, p : 727
+Enter second prime number, q : 733
+Enter private key, s (a number between 1 and n-1) : 36
+Enter commitment, r (a random number between 1 and n-1) : 60 
+Sending public key and n to  server
+
+Waiting for challenge
+
+Sending response
+******************************************************
+ROUND  3 
+
+Enter first prime number, p : 727
+Enter second prime number, q : 733
+Enter private key, s (a number between 1 and n-1) : 36
+Enter commitment, r (a random number between 1 and n-1) : 40
+Sending public key and n to  server
+
+Waiting for challenge
+
+Sending response
+******************************************************
